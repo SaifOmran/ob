@@ -1,0 +1,204 @@
+{
+  "main": {
+    "id": "38ae382664958af5",
+    "type": "split",
+    "children": [
+      {
+        "id": "fd0a10e25ef3d212",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "45018ca09733fd67",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Excalidraw/Studying/Python.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Python"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c35fa5587aaa5291",
+    "type": "split",
+    "children": [
+      {
+        "id": "19676293220c7f48",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9af9e0418cc0bfc2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "8cc3f11e16451f57",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#example",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e374e1d4a0834483",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "50b169789559e97b",
+    "type": "split",
+    "children": [
+      {
+        "id": "8c337b137eceb498",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "efe02923cb605ac6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Programming/Python/Python.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Python"
+            }
+          },
+          {
+            "id": "d01de00cade1d902",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Programming/Python/Python.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Python"
+            }
+          },
+          {
+            "id": "a362ce0857129fc8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "544bd78230483d88",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "2c4295a90378e5a4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Programming/Python/Python.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Python"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "45018ca09733fd67",
+  "lastOpenFiles": [
+    "Excalidraw/Studying/ISM.md",
+    "Excalidraw/Studying/Python.md",
+    "Excalidraw/Programming/Untitled.base",
+    "Excalidraw/Programming/Untitled",
+    "Pasted image 20251120005932.png",
+    "Pasted image 20251120005829.png",
+    "Excalidraw/Drawing 2025-11-19 23.07.50.excalidraw.md",
+    "Pasted image 20251119231744.png",
+    "Pasted image 20251119231808.png",
+    "Pasted image 20251119231751.png",
+    "Excalidraw",
+    "Welcome.md",
+    "Excalidraw/Studying/Python",
+    "Excalidraw/Studying"
+  ]
+}
