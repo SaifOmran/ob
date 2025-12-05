@@ -16,7 +16,7 @@ print("I like pizza")
 ```
 ---
 # Variables
-- Variable is a container that store any type of values (String, integer, float, Boolean) and it represents this value
+- Variable is a container that store any type of values (String, integer, float, Boolean) and it represents this value kofta
 ```python
 first_name = "Saif" #String variable
 ```
