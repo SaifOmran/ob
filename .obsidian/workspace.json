@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Excalidraw/Studying/Python.md",
+                "file": "Excalidraw/Studying/ISM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python"
+              "title": "ISM"
             }
           }
         ]
@@ -181,13 +181,14 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "obsidian-excalidraw-plugin:New drawing": false
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "45018ca09733fd67",
   "lastOpenFiles": [
-    "Excalidraw/Studying/ISM.md",
     "Excalidraw/Studying/Python.md",
+    "Excalidraw/Studying/ISM.md",
     "Excalidraw/Programming/Untitled.base",
     "Excalidraw/Programming/Untitled",
     "Pasted image 20251120005932.png",

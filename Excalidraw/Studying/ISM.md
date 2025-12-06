@@ -30,5 +30,29 @@
 - converged infrastructure: compute-network-storage, storage connected to server using SAN.
 - Hyper-converged infrastructure: compute-network, storage built-in server which is faster.
 >   still server pooling for the storage is existed
+---
+# Day 2
+222-
+- Storage box = dummy disks + controller.
+- RAID 0: performance and utilization, but low level of protection.
+- RAID 1: protection, but low level of utilization.
+- RAID 1+0: low level of utilization.
+- RAID 3 (stripping with dedicated parity): fault tolerance for one disk, but 1/3 of disk capacity is wasted for the parity.
+> write penalty = 4.
+> read old data, read old parity, write new parity, write new data.
+- RAID 5 (stripping with distributed parity): instead of having whole disk for the parity, it is distributed among the disks that contain the data itself (slightly better from RAID 3 due to direct calculations)
+- RAID 6(stripping with doubled parity): tolerance of 2 disk failures 
+- RAID techniques are applied on RAID set which contains number of disks (7+1), 1 here refers to hot spare disk where the data is recovered on it and it becomes data disks in the RAID set.
+- Types of RAID controller: 
+	- 1-software 
+	- 2-Hardware (preconfigured from the provider)
+- block-based controller = front end + cache + back end
+	- front end = front end port (connect between server and storage box) + front end controller (responsible for the encapsulation and de-encapsulation of SCSI commands and requests)
+	- cache = increase performance as it maintains the most accessible data
+	- back end = back end port (connected to the physical storage) + back end controller (responsible for the encapsulation and de-encapsulation of SCSI commands and requests + error detection)
+- cache store techniques:
+	- 1- MRU
+	- 2- LRU
+	- 3- pre fetch
 
-
+- 
