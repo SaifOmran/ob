@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Excalidraw/Studying/ISM.md",
+                "file": "Python/Python.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ISM"
+              "title": "Python"
             }
           }
         ]
@@ -187,19 +187,20 @@
   },
   "active": "45018ca09733fd67",
   "lastOpenFiles": [
-    "Excalidraw/Studying/Python.md",
-    "Excalidraw/Studying/ISM.md",
+    "ISM/ISM.md",
+    "ISM",
+    "Python/Python.md",
     "Excalidraw/Programming/Untitled.base",
     "Excalidraw/Programming/Untitled",
-    "Pasted image 20251120005932.png",
-    "Pasted image 20251120005829.png",
+    "Python/Pasted image 20251120005932.png",
+    "Python/Pasted image 20251120005829.png",
     "Excalidraw/Drawing 2025-11-19 23.07.50.excalidraw.md",
     "Pasted image 20251119231744.png",
-    "Pasted image 20251119231808.png",
+    "Python/Pasted image 20251119231808.png",
     "Pasted image 20251119231751.png",
     "Excalidraw",
     "Welcome.md",
     "Excalidraw/Studying/Python",
-    "Excalidraw/Studying"
+    "Python"
   ]
 }
