@@ -44,22 +44,32 @@
 - RAID 6(stripping with doubled parity): tolerance of 2 disk failures 
 - RAID techniques are applied on RAID set which contains number of disks (7+1), 1 here refers to hot spare disk where the data is recovered on it and it becomes data disks in the RAID set.
 - Types of RAID controller: 
-	- 1-software 
-	- 2-Hardware (preconfigured from the provider)
+	- 1-software.
+	- 2-Hardware (preconfigured from the provider).
 - block-based controller = front end + cache + back end
-	- front end = front end port (connect between server and storage box) + front end controller (responsible for the encapsulation and de-encapsulation of SCSI commands and requests)
-	- cache = increase performance as it maintains the most accessible data
-	- back end = back end port (connected to the physical storage) + back end controller (responsible for the encapsulation and de-encapsulation of SCSI commands and requests + error detection)
+	- front end = front end port (connect between server and storage box) + front end controller (responsible for the encapsulation and de-encapsulation of SCSI commands and requests).
+	- cache = increase performance as it maintains the most accessible data.
+	- back end = back end port (connected to the physical storage) + back end controller (responsible for the encapsulation and de-encapsulation of SCSI commands and requests + error detection).
 - cache store techniques:
-	- 1- MRU
-	- 2- LRU
-	- 3- pre fetch
+	- 1- MRU.
+	- 2- LRU.
+	- 3- pre fetch.
 
-- Physical disks (storage box) --> Pool (from one storage box)--> *provisioning* --> LUN (from one storage box)
+- Physical disks (storage box) --> Pool (from one storage box)--> *provisioning* --> LUN (from one storage box).
 - Over provisioning: 
 - Storage tiers:
-	- 1- flash tier (fastest)
-	- 2- HDD tier
-	- 3- hybrid tier
+	- 1- flash tier (fastest).
+	- 2- HDD tier.
+	- 3- hybrid tier.
 - Tiering is applied on one storage box.
 - cache tiering = use some space of SSDs as cache memory like virtual memory concept.
+- SAN zoning: connect servers to the storage only physically by opening channel between them.
+- N-port: node port on server or storage box.
+- F-port: ports on SAN switch connected to storage box or server.
+- E-port: ports between SAN switches.
+- G-port: can be F or E.
+- HBA(front end controller) for storage box =HBA for the servers.
+- HBA has WWN and NIC has MAC.
+- WWN = WWNN + WWPN.
+- WWN is is used for zoning process.
+- WWN = HBA identifier = LUN identifier
