@@ -130,10 +130,12 @@
 - Client-server file sharing model : server decides the permissions and once someone opened the file it becomes locked for the rest EX: NFS,CIFS.
 - distributed file system model: each client has chunk of data and each one shares it (uTorrent) EX: Hadoop.
 ---
-# object storage
+# Object storage
 - All objects are stored on the same line (flat address space), so we can get the data at the same time
 - each object has:
 	- object = data.
 	- metadata = some info (owner, type, date, permissions).
 	- Defined attributes (key): for easy query.
 - Use API calls.
+# Unified storage
+- can serve block-level (SAN) ,file-level (NAS), object-level (OSD).
