@@ -72,4 +72,4 @@
 - HBA has WWN and NIC has MAC.
 - WWN = WWNN + WWPN.
 - WWN is is used for zoning process.
-- WWN = HBA identifier = LUN identifierp
+- WWN = HBA identifier = LUN identifier
