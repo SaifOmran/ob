@@ -139,3 +139,12 @@
 - Use API calls.
 # Unified storage
 - can serve block-level (SAN) ,file-level (NAS), object-level (OSD).
+---
+# Business continuity
+- information availability (IA): ensure that the info is available, accessible in timeliness and consistent (info integrity).
+- SLA = service level agreement.
+- MTBF: mean time between failures = total uptime / no # fail.
+- MTTR: mean time to recover = total downtime / no # failures.
+- RPO: recovery point objectives: amount of time that the data is loss.
+- RTO: recover time objective : time required to recover (go up again).
+- Disaster Recovery (DR) Drills:  crucial IT exercises simulating outages to test data restoration and business continuity plans, ensuring systems can switch to backup sites without major disruption.
