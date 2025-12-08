@@ -32,35 +32,79 @@
 >   still server pooling for the storage is existed
 ---
 # Day 2
-222-
+page 222
+## RAID techniques
 - Storage box = dummy disks + controller.
 - RAID 0: performance and utilization, but low level of protection.
-- RAID 1: protection, but low level of utilization.
-- RAID 1+0: low level of utilization.
-- RAID 3 (stripping with dedicated parity): fault tolerance for one disk, but 1/3 of disk capacity is wasted for the parity.
-> write penalty = 4.
-> read old data, read old parity, write new parity, write new data.
-- RAID 5 (stripping with distributed parity): instead of having whole disk for the parity, it is distributed among the disks that contain the data itself (slightly better from RAID 3 due to direct calculations)
+- RAID 1: protection, but low level of utilization, it is not like a backup as the 2 disk are identical and any change in 1 instantly effects the other, so if any disk got ransomware the other would also, the backup concept means that there is a point in time where the data is copied on another disk.
+- RAID 1+0: low level of utilization, require minimum 4 disks.
+- RAID 3 (stripping with dedicated parity): fault tolerance for one disk, but 1/3 of disk capacity is wasted for the parity, typically not used in production environment.
+	- write penalty = 4.
+		- read old data, read old parity, write new parity, write new data.
+- RAID 5 (stripping with distributed parity): instead of having whole disk for the parity, it is distributed among the disks that contain the data itself (slightly better from RAID 3 due to direct calculations as the data and parity are on the same disk)
 - RAID 6(stripping with doubled parity): tolerance of 2 disk failures 
-- RAID techniques are applied on RAID set which contains number of disks (7+1), 1 here refers to hot spare disk where the data is recovered on it and it becomes data disks in the RAID set.
+- Host sparing: RAID techniques are applied on RAID set which contains number of disks (7+1), 1 here refers to hot spare disk where the data is recovered on it and it becomes data disks in the RAID set.
+	- If parity RAID is used, the data is rebuilt onto the hot spare from the parity and the data on the surviving disk drives in the RAID set.
+	- If mirroring is used, the data from the surviving mirror is used to copy the data onto the hot spare.
+	- When a new disk drive is added to the system, data from the hot spare is copied to it. The hot spare returns to its idle state, ready to replace the next failed drive.
+	- Alternatively, the hot spare replaces the failed disk drive permanently. This means that it is no longer a hot spare, and a new hot spare must be configured on the storage system.
 - Types of RAID controller: 
 	- 1-software.
 	- 2-Hardware (preconfigured from the provider).
-- block-based controller = front end + cache + back end
-	- front end = front end port (connect between server and storage box) + front end controller (responsible for the encapsulation and de-encapsulation of SCSI commands and requests).
+---
+## Block-based storage system
+- Block-based controller = front end + cache + back end
+	- front end = front end port (connect between server and storage box) + front end controller (responsible for the encapsulation and de-encapsulation of SCSI commands and route data to and from cache through the internal data bus).
 	- cache = increase performance as it maintains the most accessible data.
 	- back end = back end port (connected to the physical storage) + back end controller (responsible for the encapsulation and de-encapsulation of SCSI commands and requests + error detection).
-- cache store techniques:
-	- 1- MRU.
-	- 2- LRU.
-	- 3- pre fetch.
-
+- cache management techniques:
+	- 1- MRU (used when compute system reads the block for only one time).
+	- 2- LRU (more popular as cache discards the data which not used for a long time).
+	- 3- pre-fetch or read-ahead (the controller prepares the data in the cache from the disks based on the I/O requests pattern of the compute system).
+- Write-aside improves performance by preventing large sequential writes from polluting the cache, keeping cache resources available for small random I/O.
+- With dedicated cache, separate sets of memory locations are reserved for reads and writes. In global cache, both reads and writes can use any of the available memory addresses. Cache management is more efficient in a global cache implementation because only one global set of addresses has to be managed.
+- Cache is a volatile memory.
+- Cache protection techniques:
+	- Cache mirroring protects against cache/controller failure by duplicating writes on 2 caches in 2 different controllers.  
+	- Cache vaulting protects against power failure by dumping cache to vault drives and when the power is restored the data is transferred back to the cache and the cache writes it in the intended disks .
+	>In both techniques, only the write requests mirrored or transferred to the vault drives to maintain the data integrity, read requests are not critical as the data can be read from the physical disks
+---
+## Storage provisioning
+- The process of assigning storage resources to compute systems based on capacity, availability and performance requirements.
+- LUN: logical unit which created from a RAID set and it has unique ID.
+- LUNs are spread across all the physical drives that belong to that set.
+- In non-virtualized environment LUN appears as a raw storage drive to the operating system. To make this drive usable, it is formatted with a file system and then the file system is mounted.
+- In virtualized environment there is 2 methods:
+	- 1- LUN Assigned to the Hypervisor (Most Common Method)
+		- The storage system presents a LUN to the hypervisor (e.g., ESXi, Hyper-V).
+		- The hypervisor sees it as a raw physical disk.
+		- The hypervisor formats it with its own file system (VMFS, NTFS, etc.).
+		- Inside this file system, the hypervisor creates virtual disks (VMDK, VHDX).
+		- These virtual disks are then assigned to virtual machines and appear to each VM as a raw drive.
+		- Each VM formats its virtual disk with its own guest file system (NTFS, EXT4, etc.).
+		- Multiple VMs can share the same LUN, because the hypervisor manages access through its file system
+	- 2-LUN Assigned Directly to a Virtual Machine (Direct LUN / RDM / Passthrough
+		- The entire LUN is mapped directly to a single VM.
+		- No virtual disk (no VMDK/VHDX) is created.
+		- This method is recommended when:
+		    - The VM runs performance-critical applications that need low latency.        
+		    - Storage cannot be shared with other VMs (to avoid slowdowns).
+		    - The VM participates in a cluster with a physical server, so both need direct access to the same LUN.
+- It is highly recommended to create the RAID set from drives of the same type, speed, and capacity to ensure maximum usable capacity, reliability, and consistency in performance.
+- Shared pool can consists of different types of drivers 
+- Types of storage provisioning:
+	- Traditional (Thick): the whole LUN is allocated for compute system or VM.
+	- Virtual (Thin): only needed part of LUN (storage) by the compute system or VM is allocated and the rest is free for any other VMs.
 - Physical disks (storage box) --> Pool (from one storage box)--> *provisioning* --> LUN (from one storage box).
-- Over provisioning: 
+- Over provisioning: presenting more storage capacity to servers than the physical capacity actually available on the storage system.
+- LUN masking: A process that provides data access control by defining which LUNs a compute system can access.
+## Storage tiering
+- Establishing hierarchy of storge types (tiers) to store data based on service level requirement at minimal cost.
 - Storage tiers:
 	- 1- flash tier (fastest).
 	- 2- HDD tier.
 	- 3- hybrid tier.
+	- ![[Pasted image 20251208192914.png]]
 - Tiering is applied on one storage box.
 - cache tiering = use some space of SSDs as cache memory like virtual memory concept.
 - SAN zoning: connect servers to the storage only physically by opening channel between them.
