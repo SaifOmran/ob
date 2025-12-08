@@ -42,7 +42,7 @@ page 222
 	- write penalty = 4.
 		- read old data, read old parity, write new parity, write new data.
 - RAID 5 (stripping with distributed parity): instead of having whole disk for the parity, it is distributed among the disks that contain the data itself (slightly better from RAID 3 due to direct calculations as the data and parity are on the same disk)
-- RAID 6(stripping with doubled parity): tolerance of 2 disk failures 
+- RAID 6(stripping with doubled parity): tolerance of 2 disk failures and commonly used.
 - Host sparing: RAID techniques are applied on RAID set which contains number of disks (7+1), 1 here refers to hot spare disk where the data is recovered on it and it becomes data disks in the RAID set.
 	- If parity RAID is used, the data is rebuilt onto the hot spare from the parity and the data on the surviving disk drives in the RAID set.
 	- If mirroring is used, the data from the surviving mirror is used to copy the data onto the hot spare.
