@@ -121,6 +121,8 @@ page 222
 	- 3- LUN masking (on storage box).
 	- 4- Create the file system (on server).
 	- 5- Create VM (on server).
+---
+
 - N-port: node port on server or storage box.
 - F-port: ports on SAN switch connected to storage box or server.
 - E-port: ports between SAN switches.
@@ -147,7 +149,7 @@ page 222
 - Initiator = HBA (server).
 - Target = front-end port (Storage box).
 - Interconnecting device: SAN switch or SAN director.
-- FC uses FC layers which are lossless layers so the data can NOT be lost
+- FC uses FC layers which are lossless layers so the data can NOT be lost.
 - FC pros:
 	- High performance due to low traffic in SAN fabric (only storage traffic) and the high capability pf the SAN switch (8G,16G).
 	- Reliable as it uses FC-layers.
@@ -160,13 +162,13 @@ page 222
 	- NIC + ISCSI SW: the server CPU handles ISCSI functionality and TCP/IP functionality.
 	- ToE: TCP offload engine. TCP functionality on ToE NIC and ISCSI handled by the server.
 	- ISCSI HBA: the server does NOT handle anything.
-	- Target: front end port
-	- interconnecting device: L2 switch
+	- Target: front end port.
+	- interconnecting device: L2 switch.
 	- ISCSI pros:
-		- No additional cost as the interconnecting devices are already exists in the data centre
+		- No additional cost as the interconnecting devices are already exists in the data centre.
 	- ISCSI cons:
 		- Network congestion.
-		- uses TCP lossy layers
+		- uses TCP lossy layers.
 # FCIP
 - initiator: HBA (server).
 - target: front-end port (Storage box).
