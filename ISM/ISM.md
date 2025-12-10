@@ -153,6 +153,14 @@ page 222
 	- 4- Object: storage can communicate through API.
 	- 5- Unified: storage can understand block-level, file-level and API.
 	- The controller decides the type of the storage if it is SAN, NAS, object or unified.
+## FC SAN
+- uses FC protocol to transfer the storage traffic.
+- It is expensive as it requires special components such as HBAs and SAN switches.
+- It provides high performance as it is dedicated to transfer the storage traffic only and also it is reliable as it uses FC layers which are lossless
+## IP SAN
+- Uses TCP/IP to transfer the storage traffic.
+- More economical than FC SAN infrastructure as it uses the same network infrastructure.
+- Allows the long distance SANs to connect to each other over IP network, which used for disaster recovery solutions.
 ## FC
 - Most used.
 - Initiator = HBA (server) has SCSI-to-FC processing capability. It encapsulates operating system or hypervisor storage I/Os (usually SCSI I/O) into FC frames before sending the frames to the FC storage systems over an FC SAN.
@@ -192,21 +200,30 @@ page 222
 	- ISCSI HBA: the server does NOT handle anything.
 	- Target: front end port.
 	- interconnecting device: L2 switch.
+	- IP-based protocol that enables transporting SCSI data over an IP network
+	- Encapsulates SCSI I/O into IP packets and transports them using TCP/IP
+	- IP-based protocol that is used to interconnect distributed FC SAN islands over an IP network.
+	- Encapsulates FC frames onto IP packet and transports over existing IP network
 	- ISCSI pros:
-		- No additional cost as the interconnecting devices are already exists in the data centre.
+		- No additional cost as the interconnecting devices are already exists in the data centre (inexpensive).
+		- Easy to implement.
 	- ISCSI cons:
 		- Network congestion.
 		- uses TCP lossy layers.
 - ![[Pasted image 20251210012818.png]]
+- ![[Pasted image 20251210204148.png]]
 - 
 ---
 ## FCIP
+- IP-based protocol that is used to interconnect distributed FC SAN islands over an IP network.
+- Encapsulates FC frames onto IP packet and transports over existing IP network
 - initiator: HBA (server).
 - target: front-end port (Storage box).
 - used to transfer data from site to site.
 - main component : FCIP gateway, it is put in each site and connected to the SAN switch in the site and between the sites there is a router.
 - FCIP gateway encapsulates FC frame into network frame to route it to the other site.
 - ![[WhatsApp Image 2025-12-09 at 23.08.11_0b940bc1 1.jpg]]
+- ![[Pasted image 20251210204116.png]]
 - 
 ## FCoE
 - initiator: converge network adapter (CNA) can act as NIC and HBA.
