@@ -145,7 +145,7 @@ git log
 - So, I have commit object contains the root tree for the changed blobs, and the root tree contains the blobs and they are all for the same commit batch.
 	- ![[Pasted image 20251215233002.png]]
 	- ![[Pasted image 20251215225545.png]]
-- When we modify a file, letter M appears beside the file name which indicating that the file is modified, and if we typed *git status -s*  we will see red M which indicating that the file in working tree is different from the file in the staging area and the repo, if we typed *git add* and added the file to the staging area, the red M would change to green M which indicating that the file in the working tree is the same of the file that in the staging area.
+- When we modify a file, letter M appears beside the file name which indicating that the file is modified, and if we typed *git status -s*  we will see red M which indicating that the file in working tree is different from the file in the staging area and the repo (it does NOT have commit object), if we typed *git add* and added the file to the staging area, the red M would change to green M which indicating that the file in the working tree is the same of the file that in the staging area.
 
 - After that we commit the file and this step creates 3 objects as we saw in the previous part which are the commit, tree and blobs and we use the SHA-1 value of the commit to know the node tree of the commit batch.
 
@@ -156,4 +156,8 @@ git log
   it is used to track the project history and to identify the changes (differences) between the last commit and the one before it.
 	- ![[Pasted image 20251216005424.png]]
 
-- 
+- There is a *HEAD pointer* which pointing to the version (commit) that will be in the working directory, and this means you will modify this version.
+	- ![[Pasted image 20251216010011.png]]
+- you can move the HEAD pointer to point on any version to modify it.
+	- ![[Pasted image 20251216010147.png]]
+-02:19:00 git diff
