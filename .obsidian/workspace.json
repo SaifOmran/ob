@@ -20,8 +20,49 @@
               "icon": "lucide-file",
               "title": "Git"
             }
+          },
+          {
+            "id": "cf5aa4cbd3ffae43",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Git & Github/Git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Git"
+            }
+          },
+          {
+            "id": "6d3b7a2b5b6a8abb",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2025-12-15 23.26.51.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-12-15 23.26.51.excalidraw"
+            }
+          },
+          {
+            "id": "6090a9edb456946b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Git & Github/Git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Git"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -185,23 +226,27 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9af9e0418cc0bfc2",
+  "active": "6090a9edb456946b",
   "lastOpenFiles": [
+    "Pasted image 20251216005424.png",
+    "Excalidraw/Drawing 2025-12-16 00.51.41.excalidraw.md",
+    "Excalidraw/Drawing 2025-12-15 23.26.51.excalidraw.md",
+    "Git & Github/Git.md",
+    "Git & Github/Pasted image 20251215233002.png",
+    "Excalidraw",
+    "Git & Github/Pasted image 20251215232119.png",
+    "Git & Github/Pasted image 20251215224459.png",
+    "Git & Github/Pasted image 20251215225545.png",
+    "Pasted image 20251215231905.png",
+    "Pasted image 20251215231910.png",
+    "Linux/Linux.md",
+    "Linux",
     "Git & Github/Pasted image 20251214181804.png",
     "Git & Github/Pasted image 20251214180728.png",
     "Git & Github/Pasted image 20251214174902.png",
     "Git & Github/Pasted image 20251214001508.png",
     "ISM/ISM.md",
-    "Git & Github/Git.md",
-    "Untitled.md",
     "Git & Github",
-    "ISM/WhatsApp Image 2025-12-09 at 23.08.11_0b940bc1.jpg",
-    "ISM/WhatsApp Image 2025-12-09 at 23.08.11_0b940bc1 1.jpg",
-    "ISM/Pasted image 20251210220728.png",
-    "ISM/Pasted image 20251210215601.png",
-    "ISM/Pasted image 20251210215550.png",
-    "ISM/Pasted image 20251210204148.png",
-    "ISM/Pasted image 20251210204116.png",
     "ISM/Self Study.md",
     "Python/Python.md",
     "ISM/New Text Document.txt",
@@ -209,7 +254,6 @@
     "Excalidraw/Programming/Untitled.base",
     "Excalidraw/Programming/Untitled",
     "Excalidraw/Drawing 2025-11-19 23.07.50.excalidraw.md",
-    "Excalidraw",
     "Welcome.md",
     "Excalidraw/Studying/Python",
     "Python"

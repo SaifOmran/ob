@@ -23,7 +23,7 @@
 ### Git objects
 - Blob: it is the content of a file ONLY.
 - Tree: it is the content of a folder which are folders and files and the metadata of the folder itself.
-- Commit
+- Commit: which is rapper that rap related objects in a commit batch.
 - Tagged annotations
 ---
 ### Internal architecture
@@ -97,6 +97,7 @@ git add file.txt
 - To see the file status we use
 ```Git
 git status
+git status -s #it shows summary of files states
 ```
  - This command will show you the branch, the commits you made, the staged files and unstaged files.
  - ![[Pasted image 20251214180728.png]]
@@ -125,3 +126,34 @@ git cat-files -s <SHA-1>
 ```Git
 git cat-file -p <SHA-1>
 ```
+
+- To commit the file
+```Git
+git commit -m "message"
+```
+
+- To see the commits with their date and SHA-1 values
+```Git
+git log
+```
+
+- We notice that when we mad the commit there are 3 objects are in the .git/objects, what are those 3 files ?
+	- first one is the blob itself, it is already there.
+	- second one is the tree which is the folder that contains the file
+	- third one is the commit which indicates that those blobs and trees related to same commit process, it helps me to know the root tree which is the begin to know which files are modified.
+	- ![[Pasted image 20251215224459.png]]
+- So, I have commit object contains the root tree for the changed blobs, and the root tree contains the blobs and they are all for the same commit batch.
+	- ![[Pasted image 20251215233002.png]]
+	- ![[Pasted image 20251215225545.png]]
+- When we modify a file, letter M appears beside the file name which indicating that the file is modified, and if we typed *git status -s*  we will see red M which indicating that the file in working tree is different from the file in the staging area and the repo, if we typed *git add* and added the file to the staging area, the red M would change to green M which indicating that the file in the working tree is the same of the file that in the staging area.
+
+- After that we commit the file and this step creates 3 objects as we saw in the previous part which are the commit, tree and blobs and we use the SHA-1 value of the commit to know the node tree of the commit batch.
+
+- We notice that in the second commit if we type *git cat-file -p* "SHA-1 value of second commit", we will see parent and SHA-1 value.
+	- ![[Pasted image 20251215232119.png]]
+
+- The parent commit is the commit that comes directly before the current (latest) commit.
+  it is used to track the project history and to identify the changes (differences) between the last commit and the one before it.
+	- ![[Pasted image 20251216005424.png]]
+
+- 
