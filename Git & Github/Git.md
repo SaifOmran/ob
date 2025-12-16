@@ -160,4 +160,24 @@ git log
 	- ![[Pasted image 20251216010011.png]]
 - you can move the HEAD pointer to point on any version to modify it.
 	- ![[Pasted image 20251216010147.png]]
--02:19:00 git diff
+
+- If I modified the file and save it, this means that the file in working tree is different from the file in staging area, To see the differences between the files in working tree and staging area we use
+```Git
+git diff
+```
+
+![[Pasted image 20251216190153.png]]
+
+- Once we add the file to the staging area, there will be no differences between them and command *git diff* will show NOTHING.
+- Now, after staging the file we want to know the differences between the file in repo and the file in staging area, To see the differences we use
+```Git
+git diff --staged
+```
+
+>Every command relative to the repo and the staging area we will use *--staged* for most cases.
+
+- we can type the commit message using Vim editor
+```Git
+git commit
+#then the vim will open (or the configured text editor)
+```
