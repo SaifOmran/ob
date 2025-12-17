@@ -119,7 +119,7 @@ git cat-file -t <SHA-1>
 
 - To show the size of object
 ```Git
-git cat-files -s <SHA-1>
+git cat-file -s <SHA-1>
 ```
 
 - To show the content itself
