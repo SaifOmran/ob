@@ -235,3 +235,41 @@ it will compare the modified file with file in the staging area and discard the 
 git restore --staged <file>
 git restore <file>
 ```
+
+- Now we want to traverse across the commits, if I am in the latest commit and want go back to the commit before it, How I can do it ?
+```Git
+git reset Head~1 # 1 refers to the number of the commit to the back ارجع لورا خطوة
+```
+this command will bring the file in the previous command back to the staging area and you can see the differences between it and your current file in working tree, and the working tree will not be affected, to make it reflects the working tree we use *git restore --staged 'file'* then *git restore 'file'*.
+
+- If I am sure that I want to change the working tree directly with the content of specific commit, we use
+```Git
+git reset --hard Head~2
+```
+
+![[Pasted image 20251217180504.png]]
+
+but this command is very dangerous in live production as you change the working tree of your file directly with previous version.
+
+>HEAD is just a file that contains pointer that points to the SHA value of the commit object that also appears in the working directory.
+
+ - What if I moved the HEAD back and I want to move it forward ? we use
+```Git
+git reset --hard HEAD@{number of commit}
+```
+
+![[Pasted image 20251217181109.png]]
+
+ How we can specify the number of commit we need to forward to ? using
+```Git
+git reflog
+```
+
+- `git reflog` shows a local log of where HEAD have pointed over time.
+
+![[Pasted image 20251217180614.png]]
+
+we notice here that all HEAD moves are recorded and we can go to any specific commit like where the forth line added using `git reset --hard HEAD@{3}`
+
+- 3:04:10
+

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Linux.md",
+                "file": "Git & Github/Git.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux"
+              "title": "Git"
             }
           }
         ]
@@ -187,22 +187,23 @@
   },
   "active": "0fafcd16c38a815b",
   "lastOpenFiles": [
+    "Pasted image 20251217181109.png",
+    "Pasted image 20251217180614.png",
+    "Pasted image 20251217180504.png",
+    "Git & Github/Pasted image 20251216205530.png",
+    "Git & Github/Pasted image 20251216205015.png",
+    "Git & Github/Pasted image 20251216204936.png",
+    "Git & Github/Pasted image 20251216204902.png",
+    "Linux/Linux.md",
     "Git & Github/Git.md",
     "Pasted image 20251216210401.png",
-    "Pasted image 20251216205530.png",
-    "Pasted image 20251216205015.png",
-    "Pasted image 20251216204936.png",
-    "Pasted image 20251216204902.png",
     "Git & Github/Pasted image 20251216204759.png",
     "Git & Github/Pasted image 20251216204804.png",
     "Git & Github/Pasted image 20251216190153.png",
-    "Pasted image 20251216190149.png",
-    "Pasted image 20251216190145.png",
     "Excalidraw/Drawing 2025-12-16 00.51.41.excalidraw.md",
     "Excalidraw/Drawing 2025-12-16 00.59.16.excalidraw.md",
     "Excalidraw/Drawing 2025-12-15 23.26.51.excalidraw.md",
     "Excalidraw",
-    "Linux/Linux.md",
     "Linux",
     "ISM/ISM.md",
     "Git & Github",
