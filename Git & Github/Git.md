@@ -24,7 +24,7 @@
 - Blob: it is the content of a file ONLY.
 - Tree: it is the content of a folder which are folders and files and the metadata of the folder itself.
 - Commit: which is rapper that rap related objects in a commit batch.
-- Tagged annotations
+- Tagged annotations: It is like an alias for a commit, as not every commit is a new version so when we commit the file after many modifications and the file is considered as new version we add tag to it for easier access and to make it have meaning between the commits.
 ---
 ### Internal architecture
 - Old version controls was using 2-tree architecture which is the *working directory* and *repository*
@@ -119,7 +119,7 @@ git cat-file -t <SHA-1>
 
 - To show the size of object
 ```Git
-git cat-file -s <SHA-1>
+git cat-file  -s <SHA-1>
 ```
 
 - To show the content itself
@@ -271,5 +271,51 @@ git reflog
 
 we notice here that all HEAD moves are recorded and we can go to any specific commit like where the forth line added using `git reset --hard HEAD@{3}`
 
-- 3:04:10
+- Annotated tags : they are object which indicate that the commit is considered as a new version for easier access and to have meaning between the other commits.
+```Git
+#After making the commit
+git tag -a v2.0 -m "Version 2.0 of the file"
+git show v2.0
+```
+
+![[Pasted image 20251218004324.png]]
+
+---
+### Branching
+- By default, we are working on main (master) branch which is critical, what if we need to test new features without affecting the master branch ?, so we make another branch will start from the commit which the HEAD is pointing to it.
+
+- To create a new branch
+```Git
+git branch <branch-name>
+```
+
+- To switch from branch to branch
+```Git
+git switch <branch-name>
+```
+
+- To create a new branch and switch to it at the same time
+```Git
+git switch -c <branch-name>
+```
+
+- To show all branches
+```Git
+git branch
+```
+
+- To merge a branch to the main branch after finishing the modifications on the branch, I switch to the main branch then we use
+```Git
+git merge testing #
+```
+
+- To show the branches that are already merged with the main branch and the data is identical in both branches we use
+```Git
+git branch --merged
+```
+
+- After merging a branch to the main branch so we don't need it anymore, so we can delete it
+```Git
+git branch -d <branch-name>
+```
 
