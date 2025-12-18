@@ -192,18 +192,21 @@ git log --oneline
 ```Git
 git log --oneline -2
 ```
+
 ![[Pasted image 20251216204902.png]]
 
 - To show the summary of specific file named file.txt commits
 ```Git
 git log --oneline file.txt
 ```
+
 ![[Pasted image 20251216204936.png]]
 
 - To show the changes of specific commit
 ```Git
 git show <SHA-1 of commit>
 ```
+
 ![[Pasted image 20251216205015.png]]
 
 >This command likes traversing through the commit then tree then blob using git cat-file **SHA-1 value of each object**
@@ -306,7 +309,7 @@ git branch
 
 - To merge a branch to the main branch after finishing the modifications on the branch, I switch to the main branch then we use
 ```Git
-git merge testing #
+git merge testing 
 ```
 
 - To show the branches that are already merged with the main branch and the data is identical in both branches we use
@@ -319,3 +322,22 @@ git branch --merged
 git branch -d <branch-name>
 ```
 
+### Divergent branches
+- We have explained the simplest type of the branches where there is a branch from specific commit where the main branch still there and we do work on the created branch and at the end we merge it to the main, what if we made a branch from specific commit and we made work on this branch and also we made work on the main branch, how is the merge made in this situation ?
+![[Pasted image 20251219004920.png]]
+
+- I made file.txt and made 3 commits and then I created a branch called testing
+![[Pasted image 20251219011007.png]]
+
+- Now I will make a commit in branch testing (adding a line) and another commit on branch main (create new file called file2.txt)
+
+- First thing we notice that the new file is created only for the main branch
+![[Pasted image 20251219011424.png]]
+
+![[Pasted image 20251219011520.png]]
+
+- Second thing we notice that the graph show that there is a separation in commits from the point of creating the testing branch (909c2e3 commit)
+![[Pasted image 20251219011702.png]]
+
+- Here the merging is different as it is not linear merge, so git is creating a new commit to merge the branches and make the line linear again, and this is called 3-way commit.
+![[Pasted image 20251219011940.png]]

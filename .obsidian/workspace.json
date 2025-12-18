@@ -20,6 +20,18 @@
               "icon": "lucide-file",
               "title": "Git"
             }
+          },
+          {
+            "id": "cb1467d84d3a7ff8",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2025-12-19 00.42.02.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-12-19 00.42.02.excalidraw"
+            }
           }
         ]
       }
@@ -185,24 +197,25 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9af9e0418cc0bfc2",
+  "active": "0fafcd16c38a815b",
   "lastOpenFiles": [
+    "Pasted image 20251219011940.png",
+    "Pasted image 20251219011702.png",
+    "Pasted image 20251219011520.png",
+    "Pasted image 20251219011424.png",
+    "Pasted image 20251219011421.png",
+    "Pasted image 20251219011007.png",
+    "Pasted image 20251219004920.png",
+    "Excalidraw/Drawing 2025-12-19 00.42.02.excalidraw.md",
+    "Excalidraw/Drawing 2025-12-16 00.59.16.excalidraw.md",
+    "Excalidraw/Drawing 2025-12-16 00.51.41.excalidraw.md",
+    "Excalidraw/Drawing 2025-12-15 23.26.51.excalidraw.md",
+    "Git & Github/Git.md",
     "Git & Github/Pasted image 20251218004324.png",
     "Git & Github/Pasted image 20251217181109.png",
     "Git & Github/Pasted image 20251217180614.png",
     "Git & Github/Pasted image 20251217180504.png",
-    "Git & Github/Pasted image 20251216205530.png",
-    "Git & Github/Pasted image 20251216205015.png",
-    "Git & Github/Pasted image 20251216204936.png",
-    "Git & Github/Pasted image 20251216204902.png",
     "Linux/Linux.md",
-    "Git & Github/Git.md",
-    "Git & Github/Pasted image 20251216210401.png",
-    "Git & Github/Pasted image 20251216204759.png",
-    "Git & Github/Pasted image 20251216204804.png",
-    "Excalidraw/Drawing 2025-12-16 00.51.41.excalidraw.md",
-    "Excalidraw/Drawing 2025-12-16 00.59.16.excalidraw.md",
-    "Excalidraw/Drawing 2025-12-15 23.26.51.excalidraw.md",
     "Excalidraw",
     "Linux",
     "ISM/ISM.md",
