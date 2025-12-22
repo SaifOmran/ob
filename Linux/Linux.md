@@ -1,0 +1,24 @@
+- `openssl passwd -5 abc123` -> generate hashed passwd
+- Command substitution -> $(command)
+- 3 methods to change user group -> usermod, groupmems, gpasswd.
+- `gpasswd` with options (-a add, -d delete, -m set specific user, -A set admin for group)
+- to change group passwd -> `gpasswd (grp_name)`
+- password verification (salt value + password = hash)
+- `groupmems`                       (group name)
+	- -a add user
+	- -d delete user
+	- -l list users of group
+
+- prevent user access
+	- 1- lock user -> `usermod -L (username)`.. to unlock -> `usermod -U (username)` ..this method is not completely locked as user can login SSH
+	- 2- change shell -> `usermod -s /sbin/nologin`
+	- in etc/shadow if the field of last day of password changed = 0, it has special meaning as user has to change the password -> `chage -d 0 (username)`
+- Change defaults configuration for useradd command
+	- usedadd -D .... nano /etc/default/useadd
+	- login.dfs file has some default options for useradd command
+		- CREATE_HOME
+			- YES -> it will create home dir for the user with same name (-M to prevent making home dir, it is create but it will not be found under /home)
+			- NO -> it will NOT create home dir for the user with same name (-m to make home dir)
+			- USERGROUPS_ENAB
+				- YES -> will create group with the same name of the user, to prevent the system from making group with same name we use -N
+				- NO -> will not create group with the username and will make the primary group of the user = users(100), to let the system make group with same name in this situation we use -U
