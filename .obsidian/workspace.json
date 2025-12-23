@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Linux.md",
+                "file": "Azure/AZ-104.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux"
+              "title": "AZ-104"
             }
           }
         ]
@@ -206,8 +206,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "191d2d89abe1182e",
+  "active": "9af9e0418cc0bfc2",
   "lastOpenFiles": [
+    "Azure/Pasted image 20251223185758.png",
+    "Azure/Pasted image 20251223185652.png",
+    "Azure/Pasted image 20251223185632.png",
+    "Azure/Pasted image 20251223185612.png",
+    "Linux/Linux.md",
     "Azure/AZ-104.md",
     "Python/Python.md",
     "Git & Github/Git.md",
@@ -225,11 +230,7 @@
     "Git & Github/Pasted image 20251219011940.png",
     "Git & Github/Pasted image 20251219011702.png",
     "Git & Github/Pasted image 20251219011520.png",
-    "Git & Github/Pasted image 20251219011424.png",
-    "Git & Github/Pasted image 20251219011421.png",
-    "Git & Github/Pasted image 20251219011007.png",
     "Excalidraw/Drawing 2025-12-19 00.42.02.excalidraw.md",
-    "Linux/Linux.md",
     "Excalidraw",
     "Linux",
     "Git & Github",
