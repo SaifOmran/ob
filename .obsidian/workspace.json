@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Linux.md",
+                "file": "Python/Python.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux"
+              "title": "Python"
             }
           }
         ]
@@ -208,17 +208,18 @@
   },
   "active": "191d2d89abe1182e",
   "lastOpenFiles": [
+    "Python/Pasted image 20251120005829.png",
+    "Git & Github/Git.md",
+    "Python/Python.md",
+    "ISM/ISM.md",
+    "Linux/Linux.md",
     "Azure/AZ-104.md",
     "Azure/Pasted image 20251223185758.png",
     "Azure/Pasted image 20251223185652.png",
     "Azure/Pasted image 20251223185632.png",
     "Azure/Pasted image 20251223185612.png",
-    "Linux/Linux.md",
-    "Python/Python.md",
-    "Git & Github/Git.md",
     "New folder",
     "conflict-files-obsidian-git.md",
-    "ISM/ISM.md",
     "Azure",
     "Git & Github/Pasted image 20251220174746.png",
     "Git & Github/Pasted image 20251220164048.png",
