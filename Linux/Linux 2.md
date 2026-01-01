@@ -35,11 +35,11 @@
 	- `d` -> delete partition (unmount the partition before deletion).
 	- `L` -> show types of the partition.
 	- `w` -> save.
-2. Make filesystem on the partition using `mkfs -t [type of filesystem] [partition]` -> mkfs -t ext4 /dev/sda1
+2. Make filesystem on the partition using `mkfs -t [type of filesystem] [partition]` -> `mkfs -t ext4 /dev/sda1`.
 3. Mount the filesystem to mount point using `mount [filesystem partiton] [mount point]`
-	-> mount /dev/sda1 /mnt/mydata 
+	-> `mount /dev/sda1 /mnt/mydata`.
 	>This is a temporary mounting which will be removed after rebooting.
-4. you can unmount the partition using `umount [mount point]` -> umount /mnt/mydata
+4. you can unmount the partition using `umount [mount point]` -> `umount /mnt/mydata`
 5. To make the mounting persistent we have to make the mounting in */etc/fstab* file.
 	- we can add entry to this file by 3 ways:
 		1. Using the device name-> /dev/sda1           /mnt/mydata    ext4    defaults    0    0
@@ -62,3 +62,22 @@
 >If there any error in the */etc/fstab* file this will make the system enter the emergency mode while booting up.
 ---
 ### Managing SWAP space
+- The swap space is specified based on the memory size
+- We need to increase the swap space, we can do this by 2 methods:
+	1. Creating new partition (if there free space).
+		1. Create partition using `fdisk [device path]` and change its type to swap 82 using `t`.
+		2. Make the filesystem using `mkswap [partiton]`.
+		3. Enable swap on the partition using `swapon [partition]` (temporary mounting).
+		4. Make persistent mounting in */etc/fstab* -> UUID    swap    swap     defaults   0   0 
+		5. Verify the persistent mounting using `swapon -av`.
+		6. Check the free space of the swap using `free -m` or `swapon -s`.
+	2. Creating swap file (if there is no chance to create new partition).
+		1. Create file with specific size ->`dd  if=/dev/zero  of=/swapfile1  bs=1M  count=1024`
+		2.  Make the filesystem using `mkswap /swapfile1`.
+		3. As this file is very important we secure it using `chmod 600 /swapfile1`.
+		4. Make persistent mounting in */etc/fstab* -> /swapfile1    swap    swap     defaults   0   0 .
+		5. Verify the persistent mounting using `swapon -av`.
+		6. Check the free space of the swap using `free -m` or `swapon -s`.
+---
+### Scenario of overwriting MBR partition table info
+![[Pasted image 20260101184735.png]]
