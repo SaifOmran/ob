@@ -18,3 +18,40 @@
 		- The partition table contains 4 columns which are the partition number, start sector, last sector and flags (those are the 16 byte).
 - As we can only make 4 partitions, we can make 3 primary and 1 extended and the extended can be divided into infinite number of logical partitions.
 ### GUID Partition Table (GPT)
+- uses a modern standard for organizing storage devices, supporting large drives (over 2TB) and many partitions, replacing the older MBR system. It's linked with UEFI firmware, offering faster boot times and better security features like Secure Boot, essential for modern operating systems like Windows 10/11. GPT uses GUIDs (Globally Unique Identifiers) for partition locations and includes backup headers for data integrity, making it more robust than MBR.
+- The partition table = 16K and the entry is 128 byte so, it can support 128 partition.
+- It uses 64-bit addressing so, $2^{64}$ sector  and the sector size = 512 byte, so it can support 9.4ZB for partition.
+### Steps to configure the storage
+- After attaching new storage to the system, we need to configure it
+- Sometimes the new SCSI disks don't appear after the attachment, in this situation you can reboot the system or use `echo "- - -" > /sys/class/scsi_host/host2/scan` to avoid rebooting the system and the downtime
+>There are 3 host files host1 host2 host3, so ensure to scan them all.
+1. Create new partition use `fdisk [device_path]` -> fdisk /dev/sdba
+	- By default it would be MBR.
+	- `o` -> to use MBR partitioning style.
+	- `g` -> to use GPT partitioning style.
+	- `n` -> to add new partition.
+	- `p` -> primary (in case of MBR).
+	- `e` -> extended (in case of MBR).
+	- `d` -> delete partition (unmount the partition before deletion).
+	- `L` -> show types of the partition.
+	- `w` -> save.
+2. Make filesystem on the partition using `mkfs -t [type of filesystem] [partition]` -> mkfs -t ext4 /dev/sda1
+3. Mount the filesystem to mount point using `mount [filesystem partiton] [mount point]`
+	-> mount /dev/sda1 /mnt/mydata 
+	>This is a temporary mounting which will be removed after rebooting.
+4. you can unmount the partition using `umount [mount point]` -> umount /mnt/mydata
+5. To make the mounting persistent we have to make the mounting in */etc/fstab* file.
+	- we can add entry to this file by 3 ways:
+		1. Using the device name-> /dev/sda1           /mnt/mydata    ext4    defaults    0    0
+		>Not recommended as the device names can change as it depends on the hardware detection
+		2. Using UUID ( `blkid` to get it)->UUID=*value*    /mnt/mydata  ext4   defaults   0    0
+		3. Using LABEL (`blkid` to get it)->LABEL=*text*  /mnt/mydata  ext4    defaults   0    0
+			>Create label for the filesystem using `e2label [partition] [label]`
+		4. Use `mount -av` to mount all filesystems in the */etc/fstab* to their mount points
+		>to
+- To show the blocks devices on system `lsblk`
+	- `[device path]` ->show specific device
+	- `lsblk -l` -> show flat list instead of the tree
+	- `lsblk -f` -> show filesystem, UUID and LABEL
+- To show the mounted filesystems `df -hT` h for human-readable size and T to show filesystem type
+-  
