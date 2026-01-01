@@ -35,7 +35,7 @@
 	- `d` -> delete partition (unmount the partition before deletion).
 	- `L` -> show types of the partition.
 	- `w` -> save.
-2. Make filesystem on the partition using `mkfs -t [type of filesystem] [partition]` -> `mkfs -t ext4 /dev/sda1`.
+2. Make filesystem on the partition using `mkfs -t [type of filesystem] [partition]` -> `mkfs -t ext4 /dev/sda1` or `mkfs.[type of FS] [prtition]` -> `mkfs.ext4 /dev/sdb5`.
 3. Mount the filesystem to mount point using `mount [filesystem partiton] [mount point]`
 	-> `mount /dev/sda1 /mnt/mydata`.
 	>This is a temporary mounting which will be removed after rebooting.
@@ -81,3 +81,23 @@
 ---
 ### Scenario of overwriting MBR partition table info
 ![[Pasted image 20260101184735.png]]
+
+---
+### Number of inode and its effect on creating files and directories
+#### What is an inode?
+An inode is a data structure in Linux filesystems (like ext4) that stores metadata about a file or directory, such as:
+- File type (file, directory, link, etc.).
+- Permissions.
+- Owner & group.
+- Size.
+- Timestamps.
+- Pointers to data blocks.
+- Every file and every directory consumes exactly ONE inode.
+#### Number of inodes
+- The total number of inodes is fixed at filesystem creation 
+- ==Default block size = 4 KB==
+- ==Default ratio: 1 inode per 16 KB==
+- We can change the number of inodes using `mkfs.ext4 -i [bytes-per-inode]`.
+- ==To calculate the number of inodes -> Number of inode = partition size / bytes per inode==
+- To check the number of inodes we use `df -i`
+---
