@@ -54,4 +54,11 @@
 	- `lsblk -l` -> show flat list instead of the tree
 	- `lsblk -f` -> show filesystem, UUID and LABEL
 - To show the mounted filesystems `df -hT` h for human-readable size and T to show filesystem type
--  
+-  To modify the partition size we have to delete and create it again with the same starting sector, and we have to resize the filesystem if it supports resizing.
+- We resize the filesystem using `resize2fs [partition with FS]` .
+- If you deleted the partition without unmounting it, the OS may be not feel this deletion and to test that you can see the partitions in */proc/partitions* and you will see deleted partitions, so you have to use `partprobe [device path]` to inform the OS that the partition table is changed, if you made unmounting before the deletion you wouldn't need to make this process.
+- The extended partition can't have a filesystem as it is just container for the logical partitions that can have.
+- While making the permanent mounting in */etc/fstab*, we may forget the syntax, we can solve this problem by mounting the filesystem using `mount` command, then we dispaly */etc/mtab* file which containing the manually mounted filesystems and copy the line we need and finally paste it on the */etc/fstab* file.
+>If there any error in the */etc/fstab* file this will make the system enter the emergency mode while booting up.
+---
+### Managing SWAP space
