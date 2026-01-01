@@ -50,7 +50,7 @@
 		4. Use `mount -av` to mount all filesystems in the */etc/fstab* to their mount points
 		>to
 - To show the blocks devices on system `lsblk`
-	- `[device path]` ->show specific device
+	- `lsblk [device path]` ->show specific device
 	- `lsblk -l` -> show flat list instead of the tree
 	- `lsblk -f` -> show filesystem, UUID and LABEL
 - To show the mounted filesystems `df -hT` h for human-readable size and T to show filesystem type
