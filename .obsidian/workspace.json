@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Linux 2.md",
+                "file": "Linux/Storage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux 2"
+              "title": "Storage"
             }
           }
         ]
@@ -211,7 +211,7 @@
     "Linux/Pasted image 20260101184735.png",
     "Pasted image 20251230183821.png",
     "Linux/Linux 1.md",
-    "Linux/Linux 2.md",
+    "Linux/Storage.md",
     "Git & Github/Git.md",
     "Python/Python.md",
     "conflict-files-obsidian-git.md",

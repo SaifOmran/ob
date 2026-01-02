@@ -1,4 +1,3 @@
-# Chapter 15 - Storage
 ## Storage naming
 - Storage may be attached disks, USBs, CD-ROM, SAN storage.
 - Storage naming:
@@ -104,3 +103,4 @@ An inode is a data structure in Linux filesystems (like ext4) that stores metada
 - ==To calculate the number of inodes -> Number of inode = partition size / bytes per inode==
 - To check the number of inodes we use `df -i`
 ---
+### LVM
