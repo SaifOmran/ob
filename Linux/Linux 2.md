@@ -48,7 +48,7 @@
 		3. Using LABEL (`blkid` to get it)->LABEL=*text*  /mnt/mydata  ext4    defaults   0    0
 			>Create label for the filesystem using `e2label [partition] [label]`
 		4. Use `mount -av` to mount all filesystems in the */etc/fstab* to their mount points
-		>to
+
 - To show the blocks devices on system `lsblk`
 	- `lsblk [device path]` ->show specific device
 	- `lsblk -l` -> show flat list instead of the tree
@@ -60,8 +60,11 @@
 - The extended partition can't have a filesystem as it is just container for the logical partitions that can have.
 - While making the permanent mounting in */etc/fstab*, we may forget the syntax, we can solve this problem by mounting the filesystem using `mount` command, then we dispaly */etc/mtab* file which containing the manually mounted filesystems and copy the line we need and finally paste it on the */etc/fstab* file.
 >If there any error in the */etc/fstab* file this will make the system enter the emergency mode while booting up.
+
+==After any modification in the */etc/fstab* file we have to use `systemctl daemon-reload`.
+
 ---
-### Managing SWAP space
+### Managing swap space
 - The swap space is specified based on the memory size
 - We need to increase the swap space, we can do this by 2 methods:
 	1. Creating new partition (if there free space).
