@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Storage.md",
+                "file": "Linux/Firewall.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Storage"
+              "title": "Firewall"
+            }
+          },
+          {
+            "id": "75d2f8ab9f60fead",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/Firewall.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Firewall"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -206,12 +221,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "15f92e389a231ff9",
+  "active": "75d2f8ab9f60fead",
   "lastOpenFiles": [
+    "Linux/Pasted image 20260102164148.png",
+    "Excalidraw/Drawing 2026-01-02 16.36.05.excalidraw.md",
+    "Linux/Firewall.md",
+    "Excalidraw/Untitled.md",
+    "Linux/Storage.md",
     "Linux/Pasted image 20260101184735.png",
     "Pasted image 20251230183821.png",
     "Linux/Linux 1.md",
-    "Linux/Storage.md",
     "Git & Github/Git.md",
     "Python/Python.md",
     "conflict-files-obsidian-git.md",
@@ -227,7 +246,6 @@
     "Git & Github/Pasted image 20251220174746.png",
     "Git & Github/Pasted image 20251220164048.png",
     "Git & Github/Pasted image 20251220163847.png",
-    "Git & Github/Pasted image 20251220163318.png",
     "Excalidraw/Drawing 2025-12-16 00.51.41.excalidraw.md",
     "Excalidraw/Drawing 2025-12-16 00.59.16.excalidraw.md",
     "Excalidraw/Drawing 2025-12-15 23.26.51.excalidraw.md",
