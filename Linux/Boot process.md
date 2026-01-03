@@ -34,7 +34,7 @@
 ---
 ### Partitions
 - */dev/sda1* -> mounted to /boot (boot partition)
-- */dev/sda1* -> mounted to / (root partition)
+- */dev/sda2* -> mounted to / (root partition)
 ---
 ### Root password recovery 
 - ##### Method 1
