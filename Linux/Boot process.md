@@ -21,7 +21,7 @@
 8. change root from initial filesystem to the root of the real time filesystem (root user)
 	`switch_root /sysroot`.
 9. re-execute *systemd* process as we in the new real-time filesystem, and it starts the services which are enabled (services are enabled while booting up the system).
-10. finally *systemd* specify which system target to boot up with.
+10. finally *systemd* specify which system target to boot up with (multiuser.target, graphical.target, poweroff.target, reboot.target).
 	- here we notice that the systemd is the first process started with process ID =1
 	- ![[Pasted image 20260103230027.png]]
 ---
@@ -44,3 +44,36 @@
 ---
 ### Grub password
 - ![[WhatsApp Image 2026-01-03 at 6.33.59 PM 1.jpeg]]
+---
+### init vs systemd
+- ==init== is the traditional (old) Linux initialization system. It is responsible for starting system services during boot.
+- ==systemd== is the modern init system used by most current Linux distributions.
+
+| Feature             | init                                            | systemd                        |
+| ------------------- | ----------------------------------------------- | ------------------------------ |
+| Startup method      | Sequential                                      | Parallel                       |
+| Boot speed          | Slow                                            | Fast                           |
+| Service definition  | Scripts                                         | Unit files                     |
+| Dependency handling | Manual                                          | Automatic                      |
+| Logging             | `/var/log` files                                | `journalctl`                   |
+| Boot levels         | Runlevels                                       | Targets                        |
+| Used in             | Old distributions                               | Modern distributions           |
+| Service managment   | -`service httpd start`<br>-`chkconfig httpd on` | `systemctl [action] [service]` |
+
+| Runlevel (init)                       | systemd Target    | Note |
+| ------------------------------------- | ----------------- | ---- |
+| 0 -> poweroff                         | poweroff.target   |      |
+| 1 -> single user<br>     (no network) | rescue.target     |      |
+| 2 -> multi user<br>      (no network) |                   |      |
+| 3 -> multi user<br>     (network)     | multi-user.target | CLI  |
+| 5                                     | graphical.target  | GUI  |
+| 6                                     | reboot.target     |      |
+- In init:
+	- To show the current run level we use `runlevel`
+	- To move from one level to another we use `init [runlevel]`.
+	- To set default run level we edit in */etc/init.d* and set the `runlevel` variable.
+- In systemd:
+	- To switch to specific target we use `systemctl isolate [target]`.
+	- To show the default target we use `systemctl get-default`.
+	- To set to specific default target we use `systemctl set-default [target]`.
+- 
