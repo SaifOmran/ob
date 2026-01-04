@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Boot process.md",
+                "file": "Linux/SElinux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Boot process"
+              "title": "SElinux"
             }
           }
         ]
@@ -208,20 +208,21 @@
   },
   "active": "75d2f8ab9f60fead",
   "lastOpenFiles": [
+    "Linux/Pasted image 20260105000718.png",
+    "Linux/Pasted image 20260104234857.png",
+    "Linux/Pasted image 20260104234621.png",
+    "Linux/Pasted image 20260104234251.png",
+    "Linux/Boot process.md",
+    "Linux/SElinux.md",
     "Linux/Pasted image 20260104222854.png",
     "Linux/Pasted image 20260104202114.png",
     "Linux/Storage.md",
     "Linux/Firewall.md",
-    "Linux/Boot process.md",
     "Linux/WhatsApp Image 2026-01-03 at 6.33.59 PM 1.jpeg",
     "Linux/WhatsApp Image 2026-01-03 at 6.33.59 PM.jpeg",
     "Linux/WhatsApp Image 2026-01-04 at 12.11.31 AM.jpeg",
     "Linux/WhatsApp Image 2026-01-04 at 12.11.25 AM.jpeg",
     "Linux/Pasted image 20260103230027.png",
-    "Linux/Pasted image 20260103225750.png",
-    "Linux/Pasted image 20260103225711.png",
-    "Linux/Pasted image 20260103224048.png",
-    "Linux/Pasted image 20260103193742.png",
     "Excalidraw/Drawing 2026-01-02 16.36.05.excalidraw.md",
     "Excalidraw/Untitled.md",
     "Linux/Linux 1.md",
