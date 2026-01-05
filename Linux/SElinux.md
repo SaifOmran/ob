@@ -70,13 +70,46 @@
 ### Semanage command
 ##### Changing the context of file
 - As we have seen that `chcon` command only change the label in inode table or on the filesystem and if there any enforced relabeling happened the file label will restored to its label based on its location.
+
 - So, we need to define a rule that inform the SELinux DB with a label for the file, so if there any enforced relabeling happened, SELinux uses its DB to re-assign the label for the files and sees that the file we defined the rule for has a specific label, so we guarantee that the file will have the required label.
+
 - so, `chcon` -> filesystem relabeling and `semanage` -> change in SELinux DB. 
+
 - To define a rule for file context in SELinux DB we use `semanage fcontext -a -t [label] [file]` 
 	- `-a` -> add.
 	- `-v` -> verbose.
 - and then we use `restore -v [file]` to relabel the file with the new context
+
 - The defined rules are stored in */etc/selinux/targeted/contexts/files/file_contexts.local*.
+
 - To define a rule for ==all files== in the same directory we use `semanage fcontext -a -t [label] "dir1/dir2(/.*)?"` then we use `restorecon -Rv /dir1/dir2`.
+	- Ex: `semanage -a -t httpd_sys_content_t /mnt/website(/.*)?` then `restorecon -Rv /mnt/website`
 	- `-R` -> recursive for all files in the directory dir2.
-- 
+
+- To delete rule we use `semanage fcontext -d -t [label] [file]`, then we use `restore -v [file]`
+	- `-d` -> delete.
+
+- To modify rule we have created we use `semanage fcontext -m -t [label] [file]`, then we use `restore -v [file]`
+	- `-m` -> modify.
+
+- To show the defined rules we use `semanage fcontext -lC`.
+
+##### Changing the context of port
+- As it is known that the Apache is running on port 80, and Apache can access port 80 as port 80 has *httpd_sys_content_t* label which accessible by the Apache.
+- What if I want to change the Apache listening port to 82 for testing (you can change it in */etc/httpd/conf/httpd.conf* ? we will notice that if we restarted the httpd service that there is an error.
+	- ![[Pasted image 20260105025245.png]]
+	- ![[Pasted image 20260105025328.png]]
+	- This error is happened because port 82 is not associated with the *httpd_sys_content_t*, so Apache can not listen on it or use it.
+
+- To show the labels of the ports we use `semanage port -l`.
+
+- To add a defined rule for port we use `semanage port -a -t [label] -p [tcp | udp] [port number]`
+	- Example -> `semanage port -a -t http_port_t -p tcp 82`, in this case if we restarted the service, it will restart without any error as the Apache service has access to the port label.
+
+- To delete port rule we use `semanage port -d -t [label] -p [tcp | udp] [port number]`.
+	- Example -> `semanage port -d -t http_port_t -p tcp 82`.
+
+- To modify port rule we use `semanage port -m -t [label] -p [tcp | udp] [port number]`.
+	- Example -> `semanage port -m -t ssh_port_t -p tcp 82`.
+
+- To show definde ports rules for ports we use `semanage port -lC`.
