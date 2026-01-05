@@ -99,7 +99,7 @@
 - What if I want to change the Apache listening port to 82 for testing (you can change it in */etc/httpd/conf/httpd.conf* ? we will notice that if we restarted the httpd service that there is an error.
 	- ![[Pasted image 20260105025245.png]]
 	- ![[Pasted image 20260105025328.png]]
-	- This error is happened because port 82 is not associated with the *httpd_sys_content_t*, so Apache can not listen on it or use it.
+	- This error is happened because port 82 is not associated with the *httpd_port_t*, so Apache can not listen on it or use it.
 
 - To show the labels of the ports we use `semanage port -l`.
 
@@ -114,4 +114,37 @@
 
 - To show definde ports rules for ports we use `semanage port -lC`.
 ---
-##### Permissive mode  for service
+##### Permissive mode for service
+- Instead of putting the whole system into permissive mode, you can make only one service permissive.
+- The service continues to work normally.
+- SELinux does NOT block its actions.
+- All violations are logged for analysis.
+- The rest of the system remains Enforcing.
+##### Why to use permissive mode for service ?
+- Troubleshooting SELinux issues
+- Testing a new or custom service
+- Identifying which SELinux rules are missing
+- Creating a proper SELinux policy later
+- This is much safer than disabling SELinux globally.
+##### Practical Example (httpd service)
+1. Find the SELinux type of the service -> `ps -eZ | grep httpd`.
+	- ![[Pasted image 20260106012948.png]]
+	- The SELinux type is `httpd_t`.
+
+2. Put the service into permissive mode -> `semanage permissive -a httpd_t`
+	- `httpd` is permissive.
+	- Violations are logged but not blocked.
+
+3. Verify by show the services in the permissive mode -> `semanage permissive -l`.
+	- ![[Pasted image 20260106013433.png]]
+
+4. Now we will change the listening port of the Apache server from 80 to 85.
+	- ![[Pasted image 20260106013607.png]]
+	- Add the port to the firewall -> `firewall-cmd --add-port=85/tcp`.
+
+5. Now if we tried to restart the httpd service, it will be restarted without any error as the permissive mode is applied on it, so there is no policy applied on it.
+	- ![[Pasted image 20260106013846.png]]
+
+6. If we returned the permissive mode to the httpd service, there would be an error
+	- ![[Pasted image 20260106014258.png]]
+	- So, we need to return the listening port to 80 again once we returned the enforcing mode on the httpd service.
