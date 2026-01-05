@@ -67,3 +67,16 @@
 		- The file is now accessible by Apache again.
 - [DEMO link for similar scenario](https://itihub.sharepoint.com/sites/PTPCloudArchitecture46Ismailia/_layouts/15/stream.aspx?id=%2Fsites%2FPTPCloudArchitecture46Ismailia%2FShared%20Documents%2FCloud%2FRecordings%2FLinux%20Admin2%2DSElinux%20DEMO%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E3d23dfd3%2D25c1%2D46f4%2Da7b3%2D36858d9820af)
 ---
+### Semanage command
+##### Changing the context of file
+- As we have seen that `chcon` command only change the label in inode table or on the filesystem and if there any enforced relabeling happened the file label will restored to its label based on its location.
+- So, we need to define a rule that inform the SELinux DB with a label for the file, so if there any enforced relabeling happened, SELinux uses its DB to re-assign the label for the files and sees that the file we defined the rule for has a specific label, so we guarantee that the file will have the required label.
+- so, `chcon` -> filesystem relabeling and `semanage` -> change in SELinux DB. 
+- To define a rule for file context in SELinux DB we use `semanage fcontext -a -t [label] [file]` 
+	- `-a` -> add.
+	- `-v` -> verbose.
+- and then we use `restore -v [file]` to relabel the file with the new context
+- The defined rules are stored in */etc/selinux/targeted/contexts/files/file_contexts.local*.
+- To define a rule for ==all files== in the same directory we use `semanage fcontext -a -t [label] "dir1/dir2(/.*)?"` then we use `restorecon -Rv /dir1/dir2`.
+	- `-R` -> recursive for all files in the directory dir2.
+- 
