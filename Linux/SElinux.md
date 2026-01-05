@@ -65,3 +65,5 @@
 	- Check after the enforced relabeling -> `ls -Z /var/www/html/index.html`
 		- system_u:object_r:==httpd_sys_content_t==:s0 index.html
 		- The file is now accessible by Apache again.
+- [DEMO link for similar scenario](https://itihub.sharepoint.com/sites/PTPCloudArchitecture46Ismailia/_layouts/15/stream.aspx?id=%2Fsites%2FPTPCloudArchitecture46Ismailia%2FShared%20Documents%2FCloud%2FRecordings%2FLinux%20Admin2%2DSElinux%20DEMO%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E3d23dfd3%2D25c1%2D46f4%2Da7b3%2D36858d9820af)
+- 
