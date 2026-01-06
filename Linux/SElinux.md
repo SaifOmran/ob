@@ -148,3 +148,93 @@
 6. If we returned the permissive mode to the httpd service, there would be an error
 	- ![[Pasted image 20260106014258.png]]
 	- So, we need to return the listening port to 80 again once we returned the enforcing mode on the httpd service.
+---
+### SELinux Booleans
+##### What are SELinux Booleans?
+- SELinux Booleans are on/off switches that modify SELinux policy behaviour without changing file contexts or writing new policies.
+- They allow or deny specific actions for services at runtime.
+- They provide flexibility while keeping SELinux in Enforcing mode.
+##### Why SELinux Booleans are used ?
+- Enable optional features safely
+- Allow controlled exceptions (without disabling SELinux)
+- Avoid complex custom policy writing
+- Commonly used with services like httpd, ftp, ssh
+##### How SELinux Booleans work ?
+- Each Boolean controls one specific permission
+- Values:
+    - `on` / `1` → allow behaviour
+    - `off` / `0` → deny behaviour
+- Booleans affect policy decisions, not labels or permissions
+##### Boolean commands
+- To show the all Booleans -> `semanage boolean -l`.
+- To activate Boolean -> `setsebool [bool_name] on`. (runtime)
+- To de-activate Boolean -> `setsebool [bool_name] off`. (runtime)
+- To make the activation or the de-activation permanent even after reboot we use `-P
+	- `setsebool -P [bool_name] on`.
+	- `setsebool -P [bool_name] off`.
+---
+## يعني إيه SELinux Boolean؟
+
+تخيل SELinux عامل **زرار ON / OFF** لكل ميزة في السيستم.
+
+- الزرار ده اسمه **Boolean**
+- بيشغّل أو يقفل **تصرف معين** في policy
+- من غير ما:
+    - تغيّر permissions
+    - تغيّر context
+    - تعطل SELinux
+👉 مجرد سماح أو منع لسلوك معيّن.
+
+---
+
+## الفكرة في سطر واحد
+SELinux Boolean = استثناء متحكم فيه
+بدل ما تقول:
+> “SELinux معطّلني، أقفله”
+
+تقول:
+
+> “اسمح للتصرف ده بس”
+
+---
+
+## مثال بسيط جدًا (Apache)
+### المشكلة
+- Apache شغال ✔
+- Permissions صح ✔
+- Context صح ✔
+- ومع ذلك مش راضي يقرأ ملفات من `/home`
+ليه؟  
+👉 SELinux policy **قافلة التصرف ده**
+
+---
+
+### الحل بالـ Boolean
+في Boolean اسمه:
+`httpd_enable_homedirs`
+- OFF → Apache ممنوع يدخل على home
+- ON → Apache مسموح له
+تشغيله:
+`setsebool -P httpd_enable_homedirs on`
+✔ Apache اشتغل  
+✔ SELinux لسه Enforcing  
+✔ أمان عالي
+
+---
+## الفرق بين Boolean وباقي الحلول
+
+|الحل|بيعمل إيه|
+|---|---|
+|Disable SELinux|يكسر الأمان كله ❌|
+|Permissive mode|يسمح بكل حاجة للخدمة ⚠️|
+|chcon|تغيير مؤقت للفايل|
+|semanage|تغيير دائم للـ context|
+|**Boolean**|سماح لسلوك معين فقط ✅|
+
+---
+
+## تستخدم Boolean إمتى؟
+تستخدمه لما:
+- الخدمة شغالة صح
+- لكن SELinux مانع تصرف معيّن
+- وفي Boolean جاهز للتصرف ده
